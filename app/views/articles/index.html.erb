@@ -3,6 +3,8 @@
 
 <%# <h1>Hello, Rails!</h1> %>
 
+<%= render 'partials/header' %>
+
 <h1>Articles</h1>
 
 Our blog has <%= Article.public_count %> articles and counting!
@@ -16,3 +18,5 @@ Our blog has <%= Article.public_count %> articles and counting!
 </ul>
 
 <%= link_to "New Article", new_article_path %>
+
+<%= render 'partials/footer' %>

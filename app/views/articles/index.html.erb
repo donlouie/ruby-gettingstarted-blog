@@ -15,13 +15,21 @@
 	</div>
 </section>
 
+<section class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<a href="/articles/new" class="text-dark">Create New Article</a>
+		</div>
+	</div>
+</section>
+
 <%# --Article list section %>
-<section class="container p-5">
+<section class="container p-5 shadow-sm p-3 mb-5 bg-body rounded">
 <div class="row g-5">
     <div class="col-md-8">
-			<h3 class="pb-4 mb-4 fst-italic border-bottom">
-        List of Articles
-      </h3>
+			<h2 class="pb-4 mb-4 fst-italic border-bottom">
+        Topics
+      </h2>
 
 			<ul>
 				<% @articles.each do |article| %>
@@ -37,7 +45,5 @@
 		</div>
 </div>
 </section>
-
-<%= link_to "New Article", new_article_path %>
 
 <%= render 'partials/footer' %>

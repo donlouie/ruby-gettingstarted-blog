@@ -1,7 +1,19 @@
 <%= render 'partials/header' %>
 
+<%# Back to index link %>
+<section class="container">
+	<div class="row">
+		<div class="col-md-12 mt-5">
+			<a href="<%= articles_path %>" class="text-dark">Back to Articles</a>
+		</div>
+	</div>
+</section>
+
+<%# New form %>
+<section class="container mb-5 shadow-sm bg-body rounded">
 <h1>New Article</h1>
 
 <%= render "form", article: @article %>
+</section>
 
 <%= render 'partials/footer' %>

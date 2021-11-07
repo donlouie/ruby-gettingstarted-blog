@@ -5,17 +5,38 @@
 
 <%= render 'partials/header' %>
 
-<h1>Articles</h1>
+<%# --Title and article count section %>
+<section class="container">
+	<div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+	 <div class="col-md-6 px-0">
+			<h1 class="display-4 fst-italic">Articles</h1>
+			<p class="lead my-3">Our blog has <%= Article.public_count %> articles and counting!</p>
+		</div>
+	</div>
+</section>
 
-Our blog has <%= Article.public_count %> articles and counting!
+<%# --Article list section %>
+<section class="container p-5">
+<div class="row g-5">
+    <div class="col-md-8">
+			<h3 class="pb-4 mb-4 fst-italic border-bottom">
+        List of Articles
+      </h3>
 
-<ul>
-  <% @articles.each do |article| %>
-    <li>
-      <%= link_to article.title, article %>
-    </li>
-  <% end %>
-</ul>
+			<ul>
+				<% @articles.each do |article| %>
+					<article class="blog-post mb-5">
+							<h2 class="blog-post-title"><%= article.title %></h2>
+							<p class="blog-post-meta"><%= article.created_at.strftime("%B %d, %Y") %></p>
+							<p><%= article.body.truncate(100) %>
+							<p><a href="/articles/<%= article.id %>" class="text-dark">Read More</a></p>
+					</article>
+				<% end %>
+			</ul>
+
+		</div>
+</div>
+</section>
 
 <%= link_to "New Article", new_article_path %>
 

@@ -1,20 +1,44 @@
 <%= render 'partials/header' %>
 
-<h1><%= @article.title %></h1>
+<%# Article edit and destroy button %>
+<section class="container">
+	<div class="row">
+		<div class="col-md-12 mt-5">
+			<a href="<%= articles_path %>" class="text-dark">Back to Articles</a>
+				<a href="<%= edit_article_path(@article) %>" class="text-dark">Edit</a>
+				<a href="<%= article_path(@article) %>" class="text-dark" data-confirm="Are you sure?" data-method="delete" class="btn btn-danger">Delete</a>
+		</div>
+	</div>
+</section>
 
-<p><%= @article.body %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %></li>
-</ul>
+<%# Article title and body %>
+<section class="container shadow-sm mb-5 bg-body rounded">
+	<h1><%= @article.title %></h1>
+		<div class="container p-3">
+			<p><%= @article.body %></p>
+		</div>
+</section>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+<%# Article comments %>
+<section class="container mt-1">
+		<div class="container shadow-sm mb-5 bg-body rounded">
+			<h2 class="mb-3">Comments</h2>
+				<div class="p-3">
+					<%= render @article.comments %>
+				</div>
+		</div>
+</section>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+<%# Add comment form %>
+<section class="container mb-5">
+	<div class="card">
+		<div class="card-body">
+			<h5 class="card-title">Add a comment:</h5>
+			<%= render 'comments/form' %>
+		</div>
+	</div>
+</section>
 
 <%= render 'partials/footer' %>
+
